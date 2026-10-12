@@ -7,6 +7,8 @@ Revise a mudança em relação ao pedido e às convenções do projeto. Procure 
 
 ## Revisão
 
+- Detecte a stack pelos manifests; consulte somente o guia correspondente em `stacks/` quando pertinente.
+
 - Examine o diff completo e acompanhe o fluxo afetado até seus chamadores e fronteiras relevantes.
 - Verifique tratamento de erros, entradas inválidas, limites, concorrência e compatibilidade conforme o contexto.
 - Confira se os testes protegem o comportamento e se os comandos de validação citados correspondem a resultados observados.

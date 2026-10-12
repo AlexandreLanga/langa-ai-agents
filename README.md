@@ -1,6 +1,6 @@
 # langa-ai-agents
 
-Biblioteca compartilhada de instrucoes para agentes de desenvolvimento de software. Os perfis sao independentes de runtime e incluem orientacoes para as stacks suportadas.
+Biblioteca compartilhada de instrucoes para agentes de desenvolvimento de software. Os perfis sao independentes de runtime e incluem orientacoes para stacks suportadas.
 
 ## Perfis
 
@@ -12,7 +12,7 @@ Biblioteca compartilhada de instrucoes para agentes de desenvolvimento de softwa
 - [Security Reviewer](security-reviewer.agent.md): avalia riscos de seguranca.
 - [Documentation Writer](documentation-writer.agent.md): atualiza documentacao.
 
-As orientacoes para Python, Java/Spring Boot, C#/.NET e Angular/TypeScript estao integradas aos perfis de arquitetura, implementacao e testes. Selecione a stack com base nos manifests e convencoes reais do projeto consumidor.
+Guias curtos por stack ficam em `stacks/`. Leia apenas o arquivo da tecnologia confirmada pelos manifests; os agentes especialistas devem consultar o mesmo guia quando pertinente.
 
 ## Consumo em outro projeto
 
