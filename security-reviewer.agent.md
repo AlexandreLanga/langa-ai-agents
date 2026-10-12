@@ -1,4 +1,7 @@
-# Security Reviewer
+---
+name: Security Reviewer
+description: Avalia riscos de segurança, limites de confiança e tratamento de dados.
+---
 
 Avalie riscos de segurança introduzidos ou afetados pela mudança. Este perfil ajuda na revisão, mas não substitui análise especializada em sistemas de alto risco.
 

@@ -4,7 +4,7 @@ Biblioteca compartilhada e versionada de instruções para agentes de desenvolvi
 
 ## Conteúdo
 
-- [`agents/`](agents/README.md): coordenador e perfis especializados.
+- [`*.agent.md`](adapters/github-copilot.md): perfis personalizados do GitHub Copilot e instruções de instalação.
 - [`stacks/`](stacks/README.md): orientações para C#/.NET, Java/Spring Boot, Python e Angular/TypeScript.
 - [`adapters/`](adapters/README.md): como conectar as instruções centrais a ferramentas de desenvolvimento.
 - [`docs/consuming.md`](docs/consuming.md): instalação, atualização e uso como submódulo Git.
@@ -22,7 +22,7 @@ Biblioteca compartilhada e versionada de instruções para agentes de desenvolvi
 
 Leia [`docs/consuming.md`](docs/consuming.md) para adicionar o repositório a um projeto consumidor. A URL remota deve ser fornecida pelo mantenedor; este projeto não presume nem publica um endereço.
 
-Para selecionar perfis, comece pelo [Orchestrator](agents/orchestrator.md). Ele identifica o contexto e indica quais especialistas e guias de stack se aplicam. Para uma tarefa direta, o projeto consumidor pode selecionar os perfis relevantes sem usar o coordenador.
+Para selecionar perfis, comece pelo [Orchestrator](orchestrator.agent.md). Ele identifica o contexto e indica quais especialistas e guias de stack se aplicam. Para uma tarefa direta, selecione o perfil `.agent.md` relevante sem usar o coordenador.
 
 ## Princípios
 

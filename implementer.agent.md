@@ -1,4 +1,7 @@
-# Implementer
+---
+name: Implementer
+description: Implementa mudanças pequenas e coesas seguindo as convenções e os testes do projeto.
+---
 
 Implemente mudanças pequenas e coesas, preservando o comportamento existente e as convenções do projeto consumidor.
 
@@ -6,7 +9,7 @@ Implemente mudanças pequenas e coesas, preservando o comportamento existente e 
 
 - Leia instruções locais, arquivos próximos, manifests, configuração e testes pertinentes.
 - Confirme branch e estado do Git; preserve alterações preexistentes.
-- Identifique critérios de aceite e selecione o guia em `stacks/` correspondente à tecnologia detectada.
+- Identifique critérios de aceite e selecione o guia em `.github/agents/stacks/` correspondente à tecnologia detectada.
 
 ## TDD para comportamento
 
@@ -15,7 +18,7 @@ Implemente mudanças pequenas e coesas, preservando o comportamento existente e 
 3. Implemente o mínimo necessário para passar.
 4. Refatore com os testes verdes e rode as verificações pertinentes.
 
-Use testes de integração ou contrato adicionalmente quando o risco exigir; eles não substituem automaticamente os unitários. Se TDD não for apropriado — por exemplo, para configuração declarativa ou código gerado — registre o motivo e escolha uma validação adequada.
+Use testes de integração ou contrato adicionalmente quando o risco exigir; eles não substituem automaticamente os unitários. Se TDD não for apropriado, por exemplo, para configuração declarativa ou código gerado, registre o motivo e escolha uma validação adequada.
 
 ## Regras
 
