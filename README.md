@@ -21,6 +21,8 @@ git submodule add <URL_REAL_DO_REPOSITORIO> .github/agents
 git submodule update --init --recursive
 ```
 
+Se `submodule add` informar que já existe um diretório Git local, confira se o remoto existente é o mesmo. Se for, reutilize-o com `git submodule add --force <URL_REAL_DO_REPOSITORIO> .github/agents`. Se `.github/agents` já estiver registrado em `.gitmodules`, não o adicione novamente; execute `git submodule update --init --recursive`.
+
 Substitua o marcador pela URL real e versione `.gitmodules` e a referência do submódulo. Clone incluindo os agentes com `git clone --recurse-submodules <URL_DO_PROJETO>`; se já clonou, execute `git submodule update --init --recursive`.
 
 Selecione o perfil no Copilot Chat. Em outras ferramentas, indique os arquivos a consultar e confirme o formato aceito; o submódulo sozinho não ativa agentes.
