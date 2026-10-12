@@ -1,6 +1,6 @@
 # Angular / TypeScript
 
-- Detect Angular/TypeScript versions, configuration and project conventions before choosing APIs or reactivity patterns.
-- Preserve strict typing, accessibility, forms, state and error-handling conventions. Keep components focused.
-- Preserve accessible loading, success, empty and error states when applicable.
-- Use configured test tools; add no test libraries without need. Test behavior before implementation.
+- Confirme versões, configuração e padrões antes de escolher APIs ou reatividade.
+- Preserve tipagem estrita, acessibilidade, formulários, estado e tratamento de erros.
+- Mantenha componentes focados e estados de carregamento, sucesso, vazio e erro acessíveis.
+- Use as ferramentas de teste existentes; teste comportamento sem adicionar dependências desnecessárias.

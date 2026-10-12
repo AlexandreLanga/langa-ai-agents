@@ -1,6 +1,5 @@
 # C# / .NET
 
-- Detect SDK and target framework from global.json, project files and pipelines; do not upgrade without need.
-- Preserve nullable, async/await, DI and error-handling conventions. Add layers only when complexity warrants them.
-- Use the existing test framework (xUnit/NUnit/MSTest); use doubles for external dependencies when useful.
-- For behavior changes, test first, confirm failure, implement minimally, then refactor.
+- Confirme SDK e framework-alvo em `global.json`, projetos e pipelines; não os atualize sem necessidade.
+- Preserve referências anuláveis, `async`/`await`, injeção de dependência e tratamento de erros do projeto.
+- Use o framework de testes existente; crie camadas apenas quando a complexidade justificar.
