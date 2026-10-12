@@ -1,38 +1,56 @@
 # langa-ai-agents
 
-Biblioteca compartilhada e versionada de instruções para agentes de desenvolvimento de software. Os arquivos são independentes de runtime: cada projeto seleciona os perfis e guias de stack adequados à sua tarefa e à ferramenta que utiliza.
+Biblioteca compartilhada de instrucoes para agentes de desenvolvimento de software. Os perfis sao independentes de runtime e incluem orientacoes para as stacks suportadas.
 
-## Conteúdo
+## Perfis
 
-- [`*.agent.md`](adapters/github-copilot.md): perfis personalizados do GitHub Copilot e instruções de instalação.
-- [`stacks/`](stacks/README.md): orientações para C#/.NET, Java/Spring Boot, Python e Angular/TypeScript.
-- [`adapters/`](adapters/README.md): como conectar as instruções centrais a ferramentas de desenvolvimento.
-- [`docs/consuming.md`](docs/consuming.md): instalação, atualização e uso como submódulo Git.
-- [`docs/workflow.md`](docs/workflow.md): fluxo de trabalho recomendado.
-- [`CHANGELOG.md`](CHANGELOG.md): mudanças relevantes por versão.
-- [`VERSION`](VERSION): versão atual da biblioteca.
+- [Orchestrator](orchestrator.agent.md): enquadra tarefas e seleciona os perfis especialistas.
+- [Software Architect](software-architect.agent.md): avalia requisitos e arquitetura.
+- [Implementer](implementer.agent.md): implementa mudancas e aplica as orientacoes de stack pertinentes.
+- [Test Engineer](test-engineer.agent.md): define e avalia testes.
+- [Code Reviewer](code-reviewer.agent.md): revisa mudancas e regressoes.
+- [Security Reviewer](security-reviewer.agent.md): avalia riscos de seguranca.
+- [Documentation Writer](documentation-writer.agent.md): atualiza documentacao.
 
-## Pré-requisitos
+As orientacoes para Python, Java/Spring Boot, C#/.NET e Angular/TypeScript estao integradas aos perfis de arquitetura, implementacao e testes. Selecione a stack com base nos manifests e convencoes reais do projeto consumidor.
 
-- Git 2.13 ou posterior para usar submódulos.
-- Uma ferramenta de desenvolvimento capaz de ler instruções em Markdown. O suporte a descoberta automática varia por ferramenta.
-- Não é necessário instalar dependências, iniciar serviços ou configurar um runtime de agentes.
+## Consumo em outro projeto
 
-## Começar
+Adicione este repositorio como submodulo no caminho desejado. Para GitHub Copilot, use `.github/agents`:
 
-Leia [`docs/consuming.md`](docs/consuming.md) para adicionar o repositório a um projeto consumidor. A URL remota deve ser fornecida pelo mantenedor; este projeto não presume nem publica um endereço.
+```sh
+git submodule add <URL_REAL_DO_REPOSITORIO> .github/agents
+git submodule update --init --recursive
+```
 
-Para selecionar perfis, comece pelo [Orchestrator](orchestrator.agent.md). Ele identifica o contexto e indica quais especialistas e guias de stack se aplicam. Para uma tarefa direta, selecione o perfil `.agent.md` relevante sem usar o coordenador.
+Substitua o placeholder pela URL Git real. O comando grava a referencia em `.gitmodules` e cria o gitlink; versione ambos no projeto consumidor.
 
-## Princípios
+Para clonar o projeto consumidor com os agentes:
 
-- Investigue estrutura, instruções locais, manifests e testes antes de propor mudanças.
-- Preserve as convenções e os contratos do projeto consumidor.
-- Para mudanças de comportamento, use TDD: teste primeiro, falha esperada, implementação mínima e refatoração com os testes verdes. Registre justificativa e validação alternativa quando TDD não se aplicar.
-- Prefira soluções simples, pequenas e verificáveis. SOLID e DRY são heurísticas, não motivos para abstrair sem necessidade.
-- Proteja segredos e dados; não execute operações destrutivas, publicação ou deploy sem autorização explícita.
-- Ao concluir, informe arquivos alterados, decisões relevantes, verificações executadas e limitações.
+```sh
+git clone --recurse-submodules <URL_DO_PROJETO_CONSUMIDOR>
+```
 
-## Contribuir
+Se o projeto ja foi clonado, inicialize os submodulos na raiz:
 
-Veja [como contribuir](CONTRIBUTING.md). Mantenha os perfis acionáveis, os guias específicos para cada stack e os adaptadores pequenos. Registre mudanças relevantes no changelog e atualize `VERSION` conforme a compatibilidade.
+```sh
+git submodule update --init --recursive
+```
+
+No GitHub Copilot Chat, selecione um perfil de workspace em `.github/agents`. Para outras ferramentas, informe explicitamente os arquivos `.agent.md` que devem ser consultados e confirme o formato e o caminho reconhecidos; adicionar um submodulo, por si so, nao ativa agentes em todas as ferramentas.
+
+Para atualizar o submodulo:
+
+```sh
+git submodule update --remote --merge .github/agents
+```
+
+Revise as mudancas e registre o novo gitlink no projeto consumidor. Para manter uma versao fixa, faca checkout do commit ou tag desejado dentro do submodulo e versione essa referencia.
+
+## Principios de trabalho
+
+- Leia as instrucoes locais, manifests, codigo e testes do projeto consumidor antes de propor mudancas.
+- Preserve convencoes e contratos existentes.
+- Para mudancas de comportamento, use TDD: escreva o teste primeiro, confirme a falha esperada, implemente o minimo e refatore com os testes passando. Quando TDD nao se aplicar, explique a validacao alternativa.
+- Proteja segredos e dados. Nao execute operacoes destrutivas, publicacao ou deploy sem autorizacao explicita.
+- Ao concluir, informe arquivos alterados e verificacoes realmente executadas.

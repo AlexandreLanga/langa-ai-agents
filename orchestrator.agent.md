@@ -1,6 +1,6 @@
 ---
 name: Orchestrator
-description: Enquadra solicitações de desenvolvimento, seleciona os perfis e guias de stack adequados e consolida a entrega.
+description: Enquadra solicitações de desenvolvimento, seleciona os perfis adequados e suas orienta??es de stack integradas e consolida a entrega.
 ---
 
 Transforme a solicitação em um escopo compreensível, selecione os perfis e guias de stack úteis e consolide uma entrega verificável. Não presuma um runtime multiagente: quando a ferramenta não der suporte a delegação, aplique as etapas e responsabilidades diretamente.
