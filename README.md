@@ -36,4 +36,35 @@ Identifique a tecnologia pelos arquivos de configuração e leia somente o guia 
 - [C# / .NET](stacks/dotnet.md)
 - [Angular / TypeScript](stacks/angular-typescript.md)
 
-Para atualizar o submódulo, execute `git submodule update --remote --merge .github/agents`, revise a mudança e versione a nova referência.
+## Atualização e versionamento
+
+Para buscar a versão mais recente da ramificação configurada para o submódulo:
+
+```sh
+git submodule update --remote --merge .github/agents
+```
+
+Esse comando busca as alterações remotas e integra o novo commit ao submódulo. Revise o resultado antes de atualizar a referência do projeto consumidor:
+
+```sh
+git -C .github/agents status --short
+git diff --submodule -- .github/agents
+```
+
+O projeto consumidor deve versionar:
+
+- `.gitmodules`, que registra o caminho e a URL do repositório;
+- `.github/agents`, como referência (`gitlink`) ao commit escolhido do submódulo;
+- quaisquer outros arquivos do próprio projeto que tenham sido alterados.
+
+Registre a atualização depois de revisá-la:
+
+```sh
+git add .gitmodules .github/agents
+git diff --cached --submodule
+git commit -m "Atualiza agentes"
+```
+
+Não versione `.git/config`, `.git/modules/` nem os arquivos internos de `.github/agents` como arquivos comuns do projeto consumidor. O conteúdo e o histórico dos agentes pertencem ao repositório do submódulo; o projeto consumidor registra somente o commit apontado. Para restaurar o commit já registrado, use `git submodule update --init --recursive .github/agents` sem `--remote`.
+
+Para fixar uma versão específica, faça `git -C .github/agents checkout <TAG_OU_COMMIT>` e versione a nova referência com `git add .github/agents`.
